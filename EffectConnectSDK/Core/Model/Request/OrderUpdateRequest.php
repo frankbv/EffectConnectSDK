@@ -60,7 +60,7 @@
         }
 
         /**
-         * @param OrderLineUpdate $line
+         * @param OrderLineUpdate $lineUpdate
          *
          * @return OrderUpdateRequest
          */
