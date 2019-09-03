@@ -39,6 +39,14 @@
          * @var string $_orderIdentifier
          */
         protected $_orderIdentifier;
+
+        /**
+         * @var string $_connectionNumber
+         *
+         * The order number of the order in your own system
+         */
+        protected $_connectionNumber;
+
         /**
          * @var array $_addTags
          *
@@ -83,6 +91,13 @@
             return $this;
         }
 
+        public function setConnectionNumber($identifier)
+        {
+            $this->_connectionNumber = $identifier;
+
+            return $this;
+        }
+
         /**
          * @param $tag
          *
@@ -121,6 +136,14 @@
         public function getOrderIdentifier()
         {
             return $this->_orderIdentifier;
+        }
+
+        /**
+         * @return string
+         */
+        public function getConnectionNumber()
+        {
+            return $this->_connectionNumber;
         }
 
         /**
