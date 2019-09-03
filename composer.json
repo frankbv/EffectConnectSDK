@@ -18,7 +18,11 @@
   ],
   "homepage": "https://www.effectconnect.com",
   "require": {
-    "php": ">=5.5"
+    "php": ">=5.5",
+    "ext-curl": "*",
+    "ext-dom": "*",
+    "ext-json": "*",
+    "ext-simplexml": "*"
   },
   "autoload": {
     "psr-4": {"EffectConnect\\PHPSdk\\": "EffectConnectSDK/"}
