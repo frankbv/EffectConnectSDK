@@ -55,7 +55,7 @@
                 case CallTypeInterface::ACTION_UPDATE:
                     if (
                         $argument instanceof OrderUpdateRequest &&
-                        count($argument->getOrderlines())+count($argument->getOrders()) > 0
+                        ($argument->getOrderlines() || $argument->getOrders())
                     )
                     {
                         $valid = true;

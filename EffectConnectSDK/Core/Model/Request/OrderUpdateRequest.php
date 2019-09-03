@@ -17,11 +17,11 @@
         /**
          * @var OrderLineUpdate[] $_orderlines
          */
-        protected $_orderlines  = [];
+        protected $_orderlines;
         /**
          * @var OrderUpdate[] $_orders
          */
-        protected $_orders      = [];
+        protected $_orders;
 
         /**
          * @return string
@@ -32,7 +32,7 @@
         }
 
         /**
-         * @return OrderUpdate[]
+         * @return OrderUpdate[]|null
          */
         public function getOrders()
         {
@@ -40,7 +40,7 @@
         }
 
         /**
-         * @return OrderLineUpdate[]
+         * @return OrderLineUpdate[]|null
          */
         public function getOrderlines()
         {
