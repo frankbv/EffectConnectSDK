@@ -106,13 +106,14 @@
          */
         public function call()
         {
+            $timeout = $this->_timeout;
             $postFields = $this->_payload;
             if ($this->_payload instanceof \CURLFile)
             {
                 /**
                  * Allowing a longer timeout to upload the file to EffectConnect.
                  */
-                $this->_timeout = 30;
+                $timeout = max($timeout, 30);
                 /**
                  * Sending the CURLFile as an array.
                  */
@@ -123,7 +124,7 @@
                 CURLOPT_HTTPHEADER      => $this->_getHeaders(),
                 CURLOPT_URL             => self::API_ENDPOINT.$this->_uri,
                 CURLOPT_CUSTOMREQUEST   => $this->_method,
-                CURLOPT_TIMEOUT         => $this->_timeout,
+                CURLOPT_TIMEOUT         => $timeout,
                 CURLOPT_POSTFIELDS      => $postFields,
                 CURLOPT_RETURNTRANSFER  => true
             ]);
