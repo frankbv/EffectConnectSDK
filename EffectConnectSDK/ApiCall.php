@@ -136,11 +136,14 @@
             {
                 $this->_errors[] = sprintf('Curl error %d', $errNo);
             }
-            if (($this->_curlResponse = curl_exec($ch)) === '')
+            if (($this->_curlResponse = (string)curl_exec($ch)) === '')
             {
+                $errNo = (int)curl_errno($ch);
                 $this->_errors[] = sprintf('No response received: `%s`',
                     ($errNo === CURLE_OPERATION_TIMEDOUT?'Operation timed out. Extend your timeout (ApiCall::setTimeout()).':'Unknown reason')
                 );
+                curl_close($ch);
+                return $this;
             }
             $this->_curlInfo = curl_getinfo($ch);
             curl_close($ch);
