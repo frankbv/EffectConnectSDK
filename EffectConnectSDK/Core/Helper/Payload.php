@@ -85,6 +85,10 @@
                 $value = $payload->{$field};
                 if (count($value->children()) === 0)
                 {
+                    if ($iteration)
+                    {
+                        return [];
+                    }
                     return (string)$value;
                 } else
                 {
