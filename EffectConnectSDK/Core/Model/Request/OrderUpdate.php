@@ -41,12 +41,25 @@
         protected $_orderIdentifier;
 
         /**
+         * @var int $_connectionIdentifier
+         *
+         * Use this field to assign an identifier to your order
+         */
+        protected $_connectionIdentifier;
+
+        /**
+         * @var string $_connectionInvoice
+         *
+         * Use this field to assign an invoice identifier to your order
+         */
+        protected $_connectionInvoice;
+
+        /**
          * @var string $_connectionNumber
          *
-         * The order number of the order in your own system
+         * Use this field to assign a number to your order
          */
         protected $_connectionNumber;
-
         /**
          * @var array $_addTags
          *
@@ -91,13 +104,6 @@
             return $this;
         }
 
-        public function setConnectionNumber($identifier)
-        {
-            $this->_connectionNumber = $identifier;
-
-            return $this;
-        }
-
         /**
          * @param $tag
          *
@@ -123,6 +129,42 @@
         }
 
         /**
+         * @param int $connectionIdentifier
+         *
+         * @return OrderUpdate
+         */
+        public function setConnectionIdentifier($connectionIdentifier)
+        {
+            $this->_connectionIdentifier = $connectionIdentifier;
+
+            return $this;
+        }
+
+        /**
+         * @param string $connectionInvoice
+         *
+         * @return OrderUpdate
+         */
+        public function setConnectionInvoice($connectionInvoice)
+        {
+            $this->_connectionInvoice = $connectionInvoice;
+
+            return $this;
+        }
+
+        /**
+         * @param string $connectionNumber
+         *
+         * @return OrderUpdate
+         */
+        public function setConnectionNumber($connectionNumber)
+        {
+            $this->_connectionNumber = $connectionNumber;
+
+            return $this;
+        }
+
+        /**
          * @return string
          */
         public function getOrderIdentifierType()
@@ -139,14 +181,6 @@
         }
 
         /**
-         * @return string
-         */
-        public function getConnectionNumber()
-        {
-            return $this->_connectionNumber;
-        }
-
-        /**
          * @return array
          */
         public function getAddTags()
@@ -160,6 +194,30 @@
         public function getRemoveTags()
         {
             return $this->_removeTags;
+        }
+
+        /**
+         * @return int
+         */
+        public function getConnectionIdentifier()
+        {
+            return $this->_connectionIdentifier;
+        }
+
+        /**
+         * @return string
+         */
+        public function getConnectionInvoice()
+        {
+            return $this->_connectionInvoice;
+        }
+
+        /**
+         * @return string
+         */
+        public function getConnectionNumber()
+        {
+            return $this->_connectionNumber;
         }
 
         protected function isIterator()
